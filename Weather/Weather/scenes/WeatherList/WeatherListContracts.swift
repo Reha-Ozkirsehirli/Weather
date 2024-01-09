@@ -9,4 +9,5 @@ import Foundation
 
 /// WeatherListViewControllerProtocol
 protocol WeatherListViewControllerProtocol: AnyObject {
+    func updateTableView()
 }

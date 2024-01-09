@@ -1,16 +1,15 @@
 //
-//  WeatherListModel.swift
+//  WeatherCellModel.swift
 //  Weather
 //
-//  Created by Reha Özkırşehirli on 8.01.2024.
+//  Created by Reha Özkırşehirli on 9.01.2024.
 //
 
 import Foundation
 
-struct WeatherListModel {
-    var id: Int
-    var country: String
+struct WeatherCellModel {
     var city: String
+    var country: String
     var temperature: String
     var weatherDescription: String
     var humidity: String

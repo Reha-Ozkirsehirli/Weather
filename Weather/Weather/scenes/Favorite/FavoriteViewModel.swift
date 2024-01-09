@@ -18,7 +18,7 @@ class FavoriteViewModel {
     }
     
     func navigateToDetail() {
-        var next = factory.detail() as! WeatherDetailViewController
+        let next = factory.detail() as! WeatherDetailViewController
         push(next, from: view)
     }
 }

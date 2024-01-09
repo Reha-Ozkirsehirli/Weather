@@ -16,7 +16,7 @@ struct WeatherModel: Codable {
     var longitude: Double
     var temperature: Double
     var weather_description: String
-    var humidity: Int
+    var humidity: Double
     var wind_speed: Double
     var forecast: [Forecast]
 }
@@ -25,6 +25,6 @@ struct Forecast: Codable {
     var date: String
     var temperature: Double
     var weather_description: String
-    var humidity: Int
+    var humidity: Double
     var wind_speed: Double
 }

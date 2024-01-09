@@ -11,11 +11,38 @@ import Foundation
 class WeatherListViewModel {
     weak var view: WeatherListViewControllerProtocol!
     var factory: ViewControllerFactoryProtocol!
+    var bundle: Bundle!
+    lazy var cellName: String = {
+        "WeatherCell"
+    }()
+
+    lazy var cellId: String = {
+        "WeatherCellId"
+    }()
+
+    var elements = [WeatherListModel]()
+    private var models = [WeatherModel]()
 
     private var apiService: APIServiceProtocol
 
     init(apiService: APIServiceProtocol) {
         self.apiService = apiService
+    }
+
+    func fetchData() {
+        apiService.getWeather { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case let .success(success):
+                success?.forEach({ weatherModel in
+                    self.models.append(weatherModel)
+                    self.elements.append(.init(id: weatherModel.id,country: weatherModel.country, city: weatherModel.city, temperature: String(weatherModel.temperature), weatherDescription: weatherModel.weather_description, humidity: String(weatherModel.humidity), windSpeed: String(weatherModel.wind_speed)))
+                })
+                self.view.updateTableView()
+            case let .failure(failure):
+                print("WeatherListViewModel: Failure", failure)
+            }
+        }
     }
 
     func navigateToDetail() {

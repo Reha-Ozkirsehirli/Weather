@@ -6,14 +6,28 @@
 //
 
 import UIKit
+import Swinject
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    var assembler: Assembler?
 
+    func initDependencyInjection() {
+        assembler = Assembler([
+            CommonAssembly(),
+            WeatherListAssembly(),
+            TabbarControllerAssembly(),
+            FavoriteAssembly(),
+            WeatherDetailAssembly()
+        ])
 
+        assembler?.apply(assembly: CommonUIAssembly(assembler: assembler!))
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        initDependencyInjection()
         return true
     }
 

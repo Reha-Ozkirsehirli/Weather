@@ -8,10 +8,18 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    var factory: ViewControllerFactoryProtocol!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        factory = ViewControllerFactory(assembler: appDelegate.assembler!)
+        let next = factory.tabbarController() as! UIViewController
+        next.modalPresentationStyle = .fullScreen
+        next.modalTransitionStyle = .crossDissolve
+        present(next, animated: false)
     }
 
 

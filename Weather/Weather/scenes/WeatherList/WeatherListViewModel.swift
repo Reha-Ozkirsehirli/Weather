@@ -44,9 +44,17 @@ class WeatherListViewModel {
             }
         }
     }
+    
+    func didSelectRow(row: Int) {
+        let id = elements[row].id
+        if let model = models.first(where: { $0.id == id }) {
+            navigateToDetail(config: model)
+        }
+    }
 
-    func navigateToDetail() {
-        var next = factory.detail() as! WeatherDetailViewController
+    private func navigateToDetail(config: WeatherModel) {
+        let next = factory.detail() as! WeatherDetailViewController
+        next.setConfig(config: config)
         push(next, from: view)
     }
 }

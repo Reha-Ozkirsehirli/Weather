@@ -41,6 +41,10 @@
 		8D3556A12B4DC39E00986FAB /* WeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D35569F2B4DC39E00986FAB /* WeatherCell.swift */; };
 		8D3556A22B4DC39E00986FAB /* WeatherCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D3556A02B4DC39E00986FAB /* WeatherCell.xib */; };
 		8D3556A42B4DCEB500986FAB /* WeatherCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3556A32B4DCEB500986FAB /* WeatherCellModel.swift */; };
+		8D3556A72B4E92FC00986FAB /* ForecastRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3556A62B4E92FC00986FAB /* ForecastRow.swift */; };
+		8D3556A92B4E930A00986FAB /* ForecastRow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D3556A82B4E930A00986FAB /* ForecastRow.xib */; };
+		8D3556AB2B4E93F000986FAB /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3556AA2B4E93F000986FAB /* UIView+.swift */; };
+		8D3556AD2B4EA9C800986FAB /* SettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3556AC2B4EA9C800986FAB /* SettingsService.swift */; };
 		8DD015E52B4B7CFE008AEA42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD015E42B4B7CFE008AEA42 /* AppDelegate.swift */; };
 		8DD015E72B4B7CFE008AEA42 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD015E62B4B7CFE008AEA42 /* SceneDelegate.swift */; };
 		8DD015E92B4B7CFE008AEA42 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD015E82B4B7CFE008AEA42 /* ViewController.swift */; };
@@ -86,6 +90,10 @@
 		8D35569F2B4DC39E00986FAB /* WeatherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCell.swift; sourceTree = "<group>"; };
 		8D3556A02B4DC39E00986FAB /* WeatherCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherCell.xib; sourceTree = "<group>"; };
 		8D3556A32B4DCEB500986FAB /* WeatherCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCellModel.swift; sourceTree = "<group>"; };
+		8D3556A62B4E92FC00986FAB /* ForecastRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastRow.swift; sourceTree = "<group>"; };
+		8D3556A82B4E930A00986FAB /* ForecastRow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForecastRow.xib; sourceTree = "<group>"; };
+		8D3556AA2B4E93F000986FAB /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		8D3556AC2B4EA9C800986FAB /* SettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsService.swift; sourceTree = "<group>"; };
 		8DD015E12B4B7CFE008AEA42 /* Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DD015E42B4B7CFE008AEA42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8DD015E62B4B7CFE008AEA42 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -133,6 +141,7 @@
 		8D3556512B4C332100986FAB /* WeatherDetail */ = {
 			isa = PBXGroup;
 			children = (
+				8D3556A52B4E927B00986FAB /* forecastRow */,
 				8D35565C2B4C35FA00986FAB /* WeatherDetailViewController.swift */,
 				8D35565D2B4C35FA00986FAB /* WeatherDetailViewController.xib */,
 				8D3556682B4C364800986FAB /* WeatherDetailModel.swift */,
@@ -161,6 +170,7 @@
 			children = (
 				8D3556542B4C335C00986FAB /* APIService.swift */,
 				8D3556562B4C349400986FAB /* StorageService.swift */,
+				8D3556AC2B4EA9C800986FAB /* SettingsService.swift */,
 			);
 			path = services;
 			sourceTree = "<group>";
@@ -212,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				8D35569A2B4D8F8400986FAB /* Navigation+.swift */,
+				8D3556AA2B4E93F000986FAB /* UIView+.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -232,6 +243,15 @@
 				8D3556A32B4DCEB500986FAB /* WeatherCellModel.swift */,
 			);
 			path = models;
+			sourceTree = "<group>";
+		};
+		8D3556A52B4E927B00986FAB /* forecastRow */ = {
+			isa = PBXGroup;
+			children = (
+				8D3556A62B4E92FC00986FAB /* ForecastRow.swift */,
+				8D3556A82B4E930A00986FAB /* ForecastRow.xib */,
+			);
+			path = forecastRow;
 			sourceTree = "<group>";
 		};
 		8DD015D82B4B7CFE008AEA42 = {
@@ -342,6 +362,7 @@
 				8DD015F12B4B7D00008AEA42 /* LaunchScreen.storyboard in Resources */,
 				8D35565F2B4C35FA00986FAB /* WeatherDetailViewController.xib in Resources */,
 				8D35565B2B4C35D900986FAB /* WeatherListViewController.xib in Resources */,
+				8D3556A92B4E930A00986FAB /* ForecastRow.xib in Resources */,
 				8D3556932B4D807300986FAB /* FavoriteViewController.xib in Resources */,
 				8DD015EE2B4B7D00008AEA42 /* Assets.xcassets in Resources */,
 				8DD015EC2B4B7CFE008AEA42 /* Main.storyboard in Resources */,
@@ -420,13 +441,16 @@
 				8D3556992B4D838600986FAB /* WeatherDetailAssembly.swift in Sources */,
 				8D3556972B4D830900986FAB /* WeatherDetailContracts.swift in Sources */,
 				8D3556672B4C362800986FAB /* FavoriteViewModel.swift in Sources */,
+				8D3556AD2B4EA9C800986FAB /* SettingsService.swift in Sources */,
 				8D35565A2B4C35D900986FAB /* WeatherListViewController.swift in Sources */,
 				8D3556952B4D808A00986FAB /* FavoriteAssembly.swift in Sources */,
 				8D3556552B4C335C00986FAB /* APIService.swift in Sources */,
 				8D3556692B4C364800986FAB /* WeatherDetailModel.swift in Sources */,
 				8D3556A42B4DCEB500986FAB /* WeatherCellModel.swift in Sources */,
+				8D3556A72B4E92FC00986FAB /* ForecastRow.swift in Sources */,
 				8D3556772B4C97D600986FAB /* WeatherModel.swift in Sources */,
 				8D35566D2B4C366600986FAB /* WeatherListModel.swift in Sources */,
+				8D3556AB2B4E93F000986FAB /* UIView+.swift in Sources */,
 				8DD015E72B4B7CFE008AEA42 /* SceneDelegate.swift in Sources */,
 				8D35568B2B4D6BD800986FAB /* TabbarControllerModel.swift in Sources */,
 			);

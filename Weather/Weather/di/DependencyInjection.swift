@@ -30,5 +30,11 @@ class CommonAssembly: NSObject, Assembly {
         container.register(StorageServiceProtocol.self) { _ in
             StorageService()
         }
+        container.register(UserDefaults.self) { _ in
+            UserDefaults()
+        }
+        container.register(SettingsServiceProtocol.self) { r in
+            SettingsService(defaults: r.resolve(UserDefaults.self)!)
+        }.inObjectScope(.container)
     }
 }

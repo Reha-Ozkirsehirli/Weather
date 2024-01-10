@@ -44,4 +44,8 @@ extension WeatherListViewController: UITableViewDataSource, UITableViewDelegate 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         110
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        vm.didSelectRow(row: indexPath.row)
+    }
 }

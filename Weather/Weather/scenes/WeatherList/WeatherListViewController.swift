@@ -11,11 +11,14 @@ class WeatherListViewController: UIViewController {
     var vm: WeatherListViewModel!
 
     @IBOutlet weak var elementsTableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         elementsTableView.register(UINib(nibName: vm.cellName, bundle: vm.bundle), forCellReuseIdentifier: vm.cellId)
         elementsTableView.dataSource = self
         elementsTableView.delegate = self
+        searchBar.delegate = self
         vm.fetchData()
     }
     
@@ -49,5 +52,15 @@ extension WeatherListViewController: UITableViewDataSource, UITableViewDelegate 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         vm.didSelectRow(row: indexPath.row)
+    }
+}
+
+extension WeatherListViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        vm.searchTextDidChange(text: searchText)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        vm.searchCanceled()
     }
 }

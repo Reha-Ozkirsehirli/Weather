@@ -17,6 +17,7 @@ class WeatherDetailViewController: UIViewController {
     @IBOutlet weak var humidityValueLabel: UILabel!
     @IBOutlet weak var windSpeedValueLabel: UILabel!
     @IBOutlet weak var forecastStackView: UIStackView!
+    @IBOutlet weak var favoriteButton: UIButton!
     
     
     override func viewDidLoad() {
@@ -28,16 +29,30 @@ class WeatherDetailViewController: UIViewController {
         humidityValueLabel.text = vm.model.humidity + "%"
         windSpeedValueLabel.text = vm.model.windSpeed
         vm.model.forecast.forEach { fc in
-            var row: ForecastRow = .fromNib()
+            let row: ForecastRow = .fromNib()
             row.model = .init(date: fc.date, temperature: fc.temperature, weatherDescription: fc.weatherDescription, humidity: fc.humidity, windSpeed: fc.windSpeed)
             row.heightAnchor.constraint(equalToConstant: 100).isActive = true
             forecastStackView.addArrangedSubview(row)
         }
+        setButtonImage(isFavorite: vm.isFavorite)
     }
+    
+    @IBAction func didTapFavorite(_ sender: Any) {
+        vm.didTapFavorite()
+    }
+    
 }
 
 extension WeatherDetailViewController: WeatherDetailViewControllerProtocol {
     func setConfig(config: WeatherModel) {
         vm.setConfig(config: config)
+    }
+    
+    func setButtonImage(isFavorite: Bool) {
+        if isFavorite {
+            favoriteButton.setImage(UIImage.init(named: "favoriteSelectedIcon"), for: .normal)
+        } else {
+            favoriteButton.setImage(UIImage.init(named: "favoriteIcon"), for: .normal)
+        }
     }
 }

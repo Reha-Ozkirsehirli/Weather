@@ -8,5 +8,5 @@
 import Foundation
 
 protocol FavoriteViewControllerProtocol: AnyObject {
-    
+    func updateTableView()
 }

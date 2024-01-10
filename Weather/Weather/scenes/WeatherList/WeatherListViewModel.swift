@@ -36,7 +36,7 @@ class WeatherListViewModel {
             case let .success(success):
                 success?.forEach({ weatherModel in
                     self.models.append(weatherModel)
-                    self.elements.append(.init(id: weatherModel.id,country: weatherModel.country, city: weatherModel.city, temperature: String(weatherModel.temperature), weatherDescription: weatherModel.weather_description, humidity: String(weatherModel.humidity), windSpeed: String(weatherModel.wind_speed)))
+                    self.elements.append(.init(id: weatherModel.id,country: weatherModel.country, city: weatherModel.city, temperature: String(Int(weatherModel.temperature)), weatherDescription: weatherModel.weather_description, humidity: String(Int(weatherModel.humidity)), windSpeed: String(weatherModel.wind_speed)))
                 })
                 self.view.updateTableView()
             case let .failure(failure):

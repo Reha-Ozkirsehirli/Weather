@@ -12,7 +12,7 @@ class FavoriteAssembly: Assembly {
     func assemble(container: Container) {
         container.register(FavoriteViewControllerProtocol.self) { r in
             let vc = FavoriteViewController()
-            let vm = FavoriteViewModel(apiService: r.resolve(APIServiceProtocol.self)!)
+            let vm = FavoriteViewModel(apiService: r.resolve(APIServiceProtocol.self)!, settingsService: r.resolve(SettingsServiceProtocol.self)!)
             let factory = r.resolve(ViewControllerFactoryProtocol.self)!
             vm.view = vc
             vm.factory = factory

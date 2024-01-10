@@ -18,6 +18,8 @@ class WeatherListViewController: UIViewController {
         elementsTableView.delegate = self
         vm.fetchData()
     }
+    
+    
 }
 
 extension WeatherListViewController: WeatherListViewControllerProtocol {

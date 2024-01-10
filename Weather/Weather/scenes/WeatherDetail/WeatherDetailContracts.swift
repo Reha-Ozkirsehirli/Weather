@@ -9,4 +9,5 @@ import Foundation
 
 protocol WeatherDetailViewControllerProtocol {
     func setConfig(config: WeatherModel)
+    func setButtonImage(isFavorite: Bool)
 }

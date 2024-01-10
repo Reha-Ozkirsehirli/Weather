@@ -22,9 +22,9 @@ class WeatherCell: UITableViewCell {
             if let model = model {
                 cityLabel.text = model.city
                 countryLabel.text = model.country
-                temperatureLabel.text = model.temperature
+                temperatureLabel.text = model.temperature + "°"
                 weatherDescriptionLabel.text = model.weatherDescription
-                humidityValueLabel.text = model.humidity
+                humidityValueLabel.text = model.humidity + "%"
                 windSpeedValueLabel.text = model.windSpeed
             }
         }

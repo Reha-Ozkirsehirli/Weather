@@ -12,7 +12,7 @@ class WeatherDetailAssembly: Assembly {
     func assemble(container: Container) {
         container.register(WeatherDetailViewControllerProtocol.self) { r in
             let vc = WeatherDetailViewController()
-            let vm = WeatherDetailViewModel(apiService: r.resolve(APIServiceProtocol.self)!)
+            let vm = WeatherDetailViewModel(apiService: r.resolve(APIServiceProtocol.self)!, settingsService: r.resolve(SettingsServiceProtocol.self)!)
             let factory = r.resolve(ViewControllerFactoryProtocol.self)!
             vm.view = vc
             vm.factory = factory
